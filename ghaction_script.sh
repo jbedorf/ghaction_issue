@@ -3,9 +3,9 @@
 exit_script() {
     echo "Received signal: $1"
     echo "Going to kill a process"
-    trap - SIGHUP SIGINT SIGTERM # clear the trap
+    #trap - SIGHUP SIGINT SIGTERM # clear the trap
     # Do stuff to clean up
-    exit
+    #exit
 }
 
 trap 'exit_script SIGHUP' SIGHUP
