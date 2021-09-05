@@ -12,4 +12,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: Test script
       timeout-minutes: 2
-      run: ghaction_script.sh
+      run: ./ghaction_script.sh
