@@ -6,6 +6,7 @@ exit_script() {
     #trap - SIGHUP SIGINT SIGTERM # clear the trap
     # Do stuff to clean up
     #exit
+    sleep 20
 }
 
 trap 'exit_script SIGHUP' SIGHUP
