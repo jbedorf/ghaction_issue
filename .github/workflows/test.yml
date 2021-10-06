@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run a one-line script
-      shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
+      #shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
       run: |
 
         exit_script() {
