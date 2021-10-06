@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a one-line script
       #shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
-      shell: sh
+      shell: 'script -c "bash {0}"'
       run: |
 
         exit_script() {
@@ -24,9 +24,12 @@ jobs:
             # ex: Kill -2 1234
             echo "Sending"
         }
-        trap 'exit_script SIGHUP' HUP # SIGHUP
-        trap 'exit_script SIGINT' INT # SIGINT
-        trap 'exit_script SIGTERM' TERM #SIGTERM
+        # trap 'exit_script HUP' HUP
+        # trap 'exit_script INT' INT
+        # trap 'exit_script TERM' TERM
+        trap 'exit_script SIGHUP' SIGHUP
+        trap 'exit_script SIGINT' SIGINT
+        trap 'exit_script SIGTERM' SIGTERM
 
         echo "running the job! PID: $$"
         while true; do sleep 1; echo "waiting..."; done
