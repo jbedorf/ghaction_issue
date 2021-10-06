@@ -15,26 +15,26 @@ jobs:
       #shell: 'script -q -e -c "bash --noprofile --norc -eo pipefail {0}"'
       shell: 'script -c "bash {0}"'
       run: ./ghaction_script.sh
-      run2: |
+      # run2: |
 
-        exit_script() {
-            echo "Received signal: $1"
-            echo "Going to kill a process"
-            trap - $1 # clear the trap
-            # Do stuff to clean up
-            # ex: Kill -2 1234
-            echo "Sending"
-        }
-        # trap 'exit_script HUP' HUP
-        # trap 'exit_script INT' INT
-        # trap 'exit_script TERM' TERM
-        trap 'exit_script SIGHUP' SIGHUP
-        trap 'exit_script SIGINT' SIGINT
-        trap 'exit_script SIGTERM' SIGTERM
+      #   exit_script() {
+      #       echo "Received signal: $1"
+      #       echo "Going to kill a process"
+      #       trap - $1 # clear the trap
+      #       # Do stuff to clean up
+      #       # ex: Kill -2 1234
+      #       echo "Sending"
+      #   }
+      #   # trap 'exit_script HUP' HUP
+      #   # trap 'exit_script INT' INT
+      #   # trap 'exit_script TERM' TERM
+      #   trap 'exit_script SIGHUP' SIGHUP
+      #   trap 'exit_script SIGINT' SIGINT
+      #   trap 'exit_script SIGTERM' SIGTERM
 
-        echo "running the job! PID: $$"
-        while true; do sleep 1; echo "waiting..."; done
-        echo "Done"
+      #   echo "running the job! PID: $$"
+      #   while true; do sleep 1; echo "waiting..."; done
+      #   echo "Done"
 
     # - name: Test script
     #   timeout-minutes: 1
