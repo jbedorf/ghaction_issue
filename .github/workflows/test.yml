@@ -24,9 +24,9 @@ jobs:
             # ex: Kill -2 1234
             echo "Sending"
         }
-        trap 'exit_script SIGHUP' SIGHUP
-        trap 'exit_script SIGINT' SIGINT
-        trap 'exit_script SIGTERM' SIGTERM
+        trap 'exit_script SIGHUP' HUP # SIGHUP
+        trap 'exit_script SIGINT' INT # SIGINT
+        trap 'exit_script SIGTERM' TERM #SIGTERM
 
         echo "running the job! PID: $$"
         while true; do sleep 1; echo "waiting..."; done
